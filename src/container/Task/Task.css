@@ -1,0 +1,14 @@
+.Task{
+    margin: 5px;
+    padding: 5px; 
+    display: inline-block;
+}
+
+.completeEdit{
+    width: 20px;
+    height: 20px;
+    background: url(../../Images/checkmark.png);
+    margin: 2px;
+}   
+
+
