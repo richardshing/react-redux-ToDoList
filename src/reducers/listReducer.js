@@ -5,19 +5,24 @@ const listReducer = (state = {
 }, action) => {
   switch (action.type){
     case "ADD_TASK":
-      var copyTaskList = state.taskList.slice();
-      var copyUniqIdList = state.uniqIdArray.slice();
-      var newId = state.taskUniqId
-      copyTaskList.push(action.payload);
-      copyUniqIdList.push(state.taskUniqId);
-      newId += 1;
-      state = {
-        ...state,
-        taskList: copyTaskList,
-        uniqIdArray: copyUniqIdList,
-        taskUniqId: newId
-      };
-      break;
+      if (action.payload.replace(/\s+/g, "") === ""){
+        break;
+      }
+      else{
+        var copyTaskList = state.taskList.slice();
+        var copyUniqIdList = state.uniqIdArray.slice();
+        var newId = state.taskUniqId
+        copyTaskList.push(action.payload);
+        copyUniqIdList.push(state.taskUniqId);
+        newId += 1;
+        state = {
+          ...state,
+          taskList: copyTaskList,
+          uniqIdArray: copyUniqIdList,
+          taskUniqId: newId
+        };
+        break;
+    }
     case "DELETE_TASK":
       var newTaskArray = state.taskList.slice();
       var newUniqIdArray = state.uniqIdArray.slice();

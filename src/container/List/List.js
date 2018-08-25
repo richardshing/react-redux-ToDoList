@@ -30,7 +30,7 @@ class List extends Component {
     }
 
     render() {
-        let fullList = this.props.listReducer.taskList.map((task) => {
+        let fullList = this.props.listReducer.uniqIdArray.map((id, index) => {
             /* I'm trying to get mapping to work with the uniqId 
                 while still using the task array to display but
                 I'm not very familiar with how arrays work. Still
@@ -38,8 +38,8 @@ class List extends Component {
             console.log("task: " + task + " I: ") 
             */
             return (
-                <li key={task} className="cssTask">
-                <Task taskId={task} task={task} 
+                <li key={id} className="cssTask">
+                <Task taskId={id} task={this.props.listReducer.taskList[index]} 
                   editComplete={this.handleEditComplete}   
                   removeTask={this.handleRemoveTaskClick}
                 />       
